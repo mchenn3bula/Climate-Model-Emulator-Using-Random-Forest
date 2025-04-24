@@ -104,9 +104,9 @@ Even lower generalization on scenario shift. Indicates the model lacks **tempora
 
 Standardization uses:
 
-\[
+$$
 z = \frac{x - \mu}{\sigma}
-\]
+$$
 
 Result:
 - Features centered near 0
