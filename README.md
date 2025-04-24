@@ -1,17 +1,17 @@
 
-# 🌍 Climate Model Emulator Using Random Forest
+# Climate Model Emulator Using Random Forest
 
 This project builds a machine learning emulator that approximates a complex climate model using tabular emissions and climate data. The goal is to predict **temperature anomalies in 2050** under various greenhouse gas emission scenarios, using lightweight models such as Random Forests.
 
 ---
 
-## 🎯 Project Objective
+## Project Objective
 
 Climate simulators like NorESM2 are computationally expensive to run. This project uses historical and projected emissions data to train a Random Forest model that emulates the output of a full-scale simulator. The goal is to predict `tas_FINAL`, the **average temperature anomaly in 2050**, across spatial coordinates and Shared Socioeconomic Pathways (SSPs).
 
 ---
 
-## 🛰️ Dataset Overview
+##  Dataset Overview
 
 **Source:** [ClimateBench](https://github.com/duncanwp/ClimateBench)
 
@@ -24,7 +24,7 @@ Each sample includes:
 
 ---
 
-## 📊 Data Exploration
+## Data Exploration
 
 ### Temperature Anomaly Distribution
 
@@ -47,7 +47,7 @@ We visualized the distributions of key greenhouse gases in both the baseline (20
 
 ---
 
-## 🧪 Modeling and Evaluation
+## Modeling and Evaluation
 
 ### Baseline Random Forest Model (Unscaled)
 
@@ -57,7 +57,7 @@ We trained a Random Forest model on unstandardized data.
 - **Train R²**: 0.9913
 - **Test R²**: 0.9286
 
-➡️ High training performance but visible drop on test data reflects **overfitting**.
+High training performance but visible drop on test data reflects **overfitting**.
 
 ---
 
@@ -72,7 +72,7 @@ We applied **z-score normalization** to ensure equal feature contribution. After
 - **Train R²**: 0.9908
 - **Test R²**: 0.9275
 
-➡️ Standardization helped numerically but had minimal impact on performance, confirming that Random Forests handle raw scale well.
+Standardization helped numerically but had minimal impact on performance, confirming that Random Forests handle raw scale well.
 
 ---
 
@@ -84,7 +84,7 @@ We tested the standardized model on a spatial test set:
 - **Mean**: ~0.029
 - **R² Score**: 0.5206
 
-➡️ Significant drop in performance suggests the model struggles with **unseen geography** due to lack of spatial awareness.
+Significant drop in performance suggests the model struggles with **unseen geography** due to lack of spatial awareness.
 
 ---
 
@@ -96,11 +96,11 @@ Testing on SSP245 (a previously unseen scenario):
 - **Mean**: ~-0.425
 - **R² Score**: 0.3787
 
-➡️ Even lower generalization on scenario shift. Indicates the model lacks **temporal and causal adaptability**.
+Even lower generalization on scenario shift. Indicates the model lacks **temporal and causal adaptability**.
 
 ---
 
-## ⚙️ Standardization Recap
+## Standardization Recap
 
 Standardization uses:
 
@@ -116,21 +116,15 @@ While beneficial for some algorithms, Random Forests proved resilient to scale. 
 
 ---
 
-## 🧠 Final Reflections
+## Final Reflections
 
 This project highlights the potential and limits of using classical ML models for climate emulation:
 
-- ✅ High accuracy on in-distribution data
-- ⚠️ Weak generalization across geography and scenarios
-- 🧩 Key takeaways:
+- High accuracy on in-distribution data
+- ⚠Weak generalization across geography and scenarios
+- Key takeaways:
   - Consider spatial encoding or grid-aware architectures
   - Explore temporal models (e.g., LSTMs, transformers)
   - Apply domain adaptation or hybrid physics-ML techniques
 
 ---
-
-## 🧑‍💻 Author
-
-**Zhengyi Chen**  
-Master’s in Information Systems | Climate + Data Enthusiast  
-📫 n3bula.chen@gmail.com
