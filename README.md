@@ -63,6 +63,16 @@ High training performance but visible drop on test data reflects **overfitting**
 
 ### Feature Standardization
 
+Standardization uses:
+
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+
+Result:
+- Features centered near 0
+- Variance near 1
+
 We applied **z-score normalization** to ensure equal feature contribution. After standardizing:
 
 - **Test feature variance**: 0.976
@@ -101,16 +111,6 @@ Even lower generalization on scenario shift. Indicates the model lacks **tempora
 ---
 
 ## Standardization Recap
-
-Standardization uses:
-
-$$
-z = \frac{x - \mu}{\sigma}
-$$
-
-Result:
-- Features centered near 0
-- Variance near 1
 
 While beneficial for some algorithms, Random Forests proved resilient to scale. The real challenge remains **structural generalization**.
 
